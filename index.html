@@ -12,19 +12,23 @@
 
   <h2 id="order" style="font-size:80px; color:red;"></h2>
 
+  <!-- 🔥 ここ追加 -->
+  <p style="font-size:22px; color:red; font-weight:bold; margin-top:30px;">
+    ※この画面を閉じず、他のアプリ等を開かないでください
+  </p>
+
   <p>※この番号でお呼びします</p>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     let num = params.get("no");
 
-    // もし番号がなければ自動生成
     if(!num){
       const now = new Date();
       const h = now.getHours().toString().padStart(2, '0');
       const m = now.getMinutes().toString().padStart(2, '0');
       const s = now.getSeconds().toString().padStart(2, '0');
-      num = h + m + s; // 例：194523
+      num = h + m + s;
     }
 
     document.getElementById("order").textContent = num;
