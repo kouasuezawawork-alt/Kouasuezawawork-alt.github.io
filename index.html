@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>注文完了</title>
+</head>
+<body style="text-align:center; font-family:sans-serif; margin-top:50px;">
+
+  <h1>🎉 ご注文ありがとうございます！</h1>
+
+  <p style="font-size:24px;">あなたの注文番号</p>
+
+  <h2 id="order" style="font-size:80px; color:red;"></h2>
+
+  <p>※この番号でお呼びします</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const num = params.get("no");
+
+    if(num){
+      document.getElementById("order").textContent = num;
+    } else {
+      document.getElementById("order").textContent = "???";
+    }
+  </script>
+
+</body>
+</html>
