@@ -16,13 +16,18 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const num = params.get("no");
+    let num = params.get("no");
 
-    if(num){
-      document.getElementById("order").textContent = num;
-    } else {
-      document.getElementById("order").textContent = "???";
+    // もし番号がなければ自動生成
+    if(!num){
+      const now = new Date();
+      const h = now.getHours().toString().padStart(2, '0');
+      const m = now.getMinutes().toString().padStart(2, '0');
+      const s = now.getSeconds().toString().padStart(2, '0');
+      num = h + m + s; // 例：194523
     }
+
+    document.getElementById("order").textContent = num;
   </script>
 
 </body>
